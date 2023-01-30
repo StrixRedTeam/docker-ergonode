@@ -75,7 +75,7 @@ RUN set -eux ; \
     zip  \
     opcache ; \
     pecl install amqp ; \
-    pecl install xdebug; \
+    pecl install xdebug-3.1.5; \
     pecl install imagick ; \
     docker-php-ext-enable amqp ; \
     docker-php-ext-enable xdebug ; \
@@ -105,7 +105,6 @@ RUN set -eux ; \
     chmod +x /usr/local/bin/docker-entrypoint; \
     chmod 755 /usr/local/bin/php-fpm-healthcheck ; \
     composer --ansi --version --no-interaction; \
-    composer global require "symfony/flex" --prefer-dist --no-progress --no-suggest --classmap-authoritative; \
 	composer clear-cache;
 
 HEALTHCHECK --start-period=5m  CMD php-fpm-healthcheck
